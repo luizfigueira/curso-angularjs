@@ -1,0 +1,42 @@
+﻿<h3>Edição do produto</h3>
+
+<div class="form-group">
+    <label>Produto</label>
+    <input ng-model="vm.produto.nome"          
+           type="text"
+           class="form-control"
+           required />
+</div>
+
+<div class="form-group">
+    <label for="email">Unidade de Medida</label>
+    <input ng-model="vm.produto.unidadeMedida"
+           type="text"
+           class="form-control"
+           required />
+</div>
+
+<div class="form-group">
+    <label>Fornecedor</label>
+    <input ng-model="vm.produto.fornecedor"
+           type="text"
+           class="form-control"
+           required />
+</div>
+
+<div class="form-group">
+    <label>Preço</label>
+    <input ng-model="vm.produto.preco"
+           type="number"
+           class="form-control"
+           required />
+</div>
+
+<br />
+<div class="clearfix"></div>
+
+<p class="text-center">
+    <button class="btn btn-primary btn-lg" ng-click="vm.salvar()">
+        Salvar
+    </button>
+</p>

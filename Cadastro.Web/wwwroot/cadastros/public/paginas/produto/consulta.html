@@ -1,0 +1,38 @@
+﻿<h3>Produtos</h3>
+
+<a href="#/produtos/inclusao" class="btn btn-success btn-lg pull-right">
+    <i class="fa fa-plus"></i> Adicionar
+</a>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th class="text-center">#</th>
+            <th class="text-left">Produto</th>
+            <th class="text-left">Unidade de Medida</th>
+            <th class="text-left">Fornecedor</th>
+            <th class="text-right">Preço</th>
+            <th class="text-center"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td colspan="6">
+                <input type="text" class="form-control" ng-model="filter" value="" placeholder="Filtrar..." />
+            </td>
+        </tr>
+        <tr ng-repeat="produto in vm.produtos | filter: filter">
+            <td class="text-center">{{ produto.id }}</td>
+            <td class="text-left">{{ produto.nome }}</td>
+            <td class="text-left">{{ produto.unidadeMedida }}</td>
+            <td class="text-left">{{ produto.fornecedor }}</td>
+            <td class="text-right">{{ produto.preco | currency: 'R$ ' }}</td>
+            <td class="text-center">
+                <div class="btn-group">
+                    <a href="#/produtos/alteracao/{{ produto.id }}" class="btn btn-group btn-default btn-sm"><i class="fa fa-edit"></i></a>
+                    <a href="#/produtos/exclusao/{{ produto.id }}" class="btn btn-group btn-danger btn-sm"><i class="fa fa-remove"></i></a>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
