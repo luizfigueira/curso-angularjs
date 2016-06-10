@@ -2,11 +2,10 @@
     'use strict';
 
     angular.module('mwa').constant('SETTINGS', {
-        "SERVICE_URL": "/",
         "PRODUTOS": "produtos"
     });
 
-    angular.module('mwa').run(function ($rootScope, $location, $injector, SETTINGS) {
+    angular.module('mwa').run(function ($rootScope, SETTINGS) {
         var produtos = localStorage.getItem(SETTINGS.PRODUTOS);
 
         $rootScope.produtos = [];

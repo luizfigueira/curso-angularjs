@@ -2,9 +2,9 @@
     'use strict';
     angular.module('mwa').controller('ProdutoInclusaoCtrl', ProdutoInclusaoCtrl);
 
-    ProdutoInclusaoCtrl.$inject = ['$rootScope', '$scope', '$location', 'SETTINGS'];
+    ProdutoInclusaoCtrl.$inject = ['$rootScope', '$location', 'SETTINGS'];
 
-    function ProdutoInclusaoCtrl($rootScope, $scope, $location, SETTINGS) {
+    function ProdutoInclusaoCtrl($rootScope, $location, SETTINGS) {
         var vm = this;
         var proximoId = 1;
 
