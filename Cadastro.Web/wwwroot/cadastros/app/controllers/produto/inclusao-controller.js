@@ -2,9 +2,9 @@
     'use strict';
     angular.module('mwa').controller('ProdutoInclusaoCtrl', ProdutoInclusaoCtrl);
 
-    ProdutoInclusaoCtrl.$inject = ['$rootScope', '$scope', '$location'];
+    ProdutoInclusaoCtrl.$inject = ['$rootScope', '$scope', '$location', 'SETTINGS'];
 
-    function ProdutoInclusaoCtrl($rootScope, $scope, $location) {
+    function ProdutoInclusaoCtrl($rootScope, $scope, $location, SETTINGS) {
         var vm = this;
         var proximoId = 1;
 
@@ -31,8 +31,8 @@
         function salvar() {
             toastr.success('Produto <strong>' + vm.produto.nome + '</strong> cadastrado com sucesso', 'Produto Cadastrado');
             $rootScope.produtos.push(vm.produto);
-            localStorage.removeItem("produtos");
-            localStorage.setItem("produtos", angular.toJson($rootScope.produtos));
+            localStorage.removeItem(SETTINGS.PRODUTOS);
+            localStorage.setItem(SETTINGS.PRODUTOS, angular.toJson($rootScope.produtos));
             $location.path('/produtos');            
         }        
     };

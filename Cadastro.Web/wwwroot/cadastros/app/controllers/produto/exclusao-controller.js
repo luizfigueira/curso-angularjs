@@ -2,9 +2,9 @@
     'use strict';
     angular.module('mwa').controller('ProdutoExclusaoCtrl', ProdutoExclusaoCtrl);
 
-    ProdutoExclusaoCtrl.$inject = ['$rootScope', '$routeParams', '$location'];
+    ProdutoExclusaoCtrl.$inject = ['$rootScope', '$routeParams', '$location', 'SETTINGS'];
 
-    function ProdutoExclusaoCtrl($rootScope, $routeParams, $location) {
+    function ProdutoExclusaoCtrl($rootScope, $routeParams, $location, SETTINGS) {
         var vm = this;
         var id = $routeParams.id;
 
@@ -21,8 +21,8 @@
                     $rootScope.produtos.splice(key, 1);
                 }
             });
-            localStorage.removeItem("produtos");
-            localStorage.setItem("produtos", angular.toJson($rootScope.produtos));
+            localStorage.removeItem(SETTINGS.PRODUTOS);
+            localStorage.setItem(SETTINGS.PRODUTOS, angular.toJson($rootScope.produtos));
             $location.path('/produtos');
 
         }

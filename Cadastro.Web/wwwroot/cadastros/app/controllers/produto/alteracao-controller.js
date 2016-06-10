@@ -2,9 +2,9 @@
     'use strict';
     angular.module('mwa').controller('ProdutoAlteracaoCtrl', ProdutoAlteracaoCtrl);
 
-    ProdutoAlteracaoCtrl.$inject = ['$rootScope', '$routeParams', '$location'];
+    ProdutoAlteracaoCtrl.$inject = ['$rootScope', '$routeParams', '$location', 'SETTINGS'];
 
-    function ProdutoAlteracaoCtrl($rootScope, $routeParams, $location) {
+    function ProdutoAlteracaoCtrl($rootScope, $routeParams, $location, SETTINGS) {
         var vm = this;
         var id = $routeParams.id;
 
@@ -34,8 +34,8 @@
                 }
             });
             toastr.success('Produto <strong>' + vm.produto.nome + '</strong> atualizado com sucesso', 'Produto Atualizado');
-            localStorage.removeItem("produtos");
-            localStorage.setItem("produtos", angular.toJson($rootScope.produtos));
+            localStorage.removeItem(SETTINGS.PRODUTOS);
+            localStorage.setItem(SETTINGS.PRODUTOS, angular.toJson($rootScope.produtos));
             $location.path('/produtos');
         }
     };
